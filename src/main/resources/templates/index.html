@@ -5,28 +5,52 @@
         <title>Aufgaben APP</title>
     </head>
     <body>
-        <main class="container">
-            <p>Hallo from Index.html</p>
-            <p th:text="${something}"></p>
-
-            <table class="table table-dark table-striped">
-                <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Titel</th>
-                    <th scope="col">Beschreibung</th>
-                    <th scope="col">Status</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr th:each="aufgabe : ${aufgabenListe}">
-                    <th scope="row" th:text="${aufgabe.id}"></th>
-                    <td th:text="${aufgabe.titel}"></td>
-                    <td th:text="${aufgabe.beschreibung}"></td>
-                    <td th:text="${aufgabe.status}"></td>
-                  </tr>
-                </tbody>
-            </table>
+        <main>
+          <div class="container">
+            <div class="row">
+              <div class="col border">
+                <form action="#" th:action="@{/aufgaben}" method="post" th:object="${aufgabe}">
+                  <div class="mb-3">
+                    <label for="titel" class="form-label">Titel:</label>
+                    <input id="titel" type="text" th:field="*{titel}" class="form-control"/>
+                  </div>
+                  <div class="mb-3">
+                    <label for="beschreibung" class="form-label">Beschreibung:</label>
+                    <input id="beschreibung" type="text" th:field="*{beschreibung}" class="form-control"/>
+                  </div>
+                  <div class="mb-3">
+                    <label>Status:</label>
+                    <select th:field="*{status}" class="form-select" aria-label="Default select example">
+                        <option th:each="p : ${listStatus}" th:value="${p}" th:text="${p}" />
+                    </select>
+                  </div>
+                  <button type="submit" class="btn btn-primary">Hinzufügen</button>    
+                </form>
+              </div>
+            </div>
+            <div class="row mt-3">
+              <div class="col">
+                <table class="table table-dark table-striped">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Titel</th>
+                        <th scope="col">Beschreibung</th>
+                        <th scope="col">Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr th:each="aufgabe : ${aufgabenListe}">
+                        <th scope="row" th:text="${aufgabe.id}"></th>
+                        <td th:text="${aufgabe.titel}"></td>
+                        <td th:text="${aufgabe.beschreibung}"></td>
+                        <td th:text="${aufgabe.status}"></td>
+                      </tr>
+                    </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
         </main>
     </body>
 </html>

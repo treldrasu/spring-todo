@@ -1,4 +1,4 @@
-package de.schulung.todo;
+package de.schulung.todo.exceptions;
 
 public class UngueltigerStatusException extends Exception{
 

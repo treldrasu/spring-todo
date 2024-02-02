@@ -1,8 +1,6 @@
-package de.schulung.todo;
+package de.schulung.todo.model;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-
-import de.schulung.todo.model.Aufgabe;
 
 @Repository
 public interface AufgabenRepository extends 

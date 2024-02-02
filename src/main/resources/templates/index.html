@@ -37,6 +37,7 @@
                         <th scope="col">Titel</th>
                         <th scope="col">Beschreibung</th>
                         <th scope="col">Status</th>
+                        <th scope="col"></th>
                       </tr>
                     </thead>
                     <tbody>
@@ -45,6 +46,9 @@
                         <td th:text="${aufgabe.titel}"></td>
                         <td th:text="${aufgabe.beschreibung}"></td>
                         <td th:text="${aufgabe.status}"></td>
+                        <td><form th:action="@{'/aufgaben/' + ${aufgabe.id}}" th:method="delete" id="loescheForm">
+                          <input type="submit" value="X">
+                      </form></td>
                       </tr>
                     </tbody>
                 </table>

@@ -26,4 +26,8 @@ public class AufgabenService {
     public List<Aufgabe> holeAlleAufgaben() {
         return aufgabenRepository.findAll();
     }
+
+    public void loescheAufgabe(Long aufgabenId) {
+        aufgabenRepository.deleteById(aufgabenId);
+    }
 }
